@@ -141,6 +141,9 @@ function MkTable($data, $opt = []) {
         $c = " class='{$m[1]}'";
         $cell = $m[2];
       }
+      if(preg_match("/datetime='(.*?)'/", $cell, $m)) {
+        $c .= " data-sort='{$m[1]}'";
+      }
       $table .= "<td$c>$cell</td>\n";
     }
     $table .= "</tr>\n";
